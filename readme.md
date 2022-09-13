@@ -9,7 +9,8 @@ It is pretty simple to run this. Simply go to the root folder containing the ass
 ```sh
   python assessment_iprice.py <<string_to_test>>
 ```
-In the <<string_to_test>> place the string value that you need to test on (without the angular brackets).
+In the <<string_to_test>> place the string value that you need to test on (without the angular brackets). <br/>
+Please note that if result.csv is already open, the CSV creation will not happen.
 
 ## Analysing Result
 You should get 3 lines of output on the command. 
