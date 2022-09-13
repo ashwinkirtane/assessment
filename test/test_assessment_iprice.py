@@ -38,11 +38,11 @@ class AssessmentTestCases(TestCase):
         obj = assessmentIPrice(s)
         r = obj.create_csv()
         # This has created a file - now we need to read this CSV and compare it with above string
-        with open('result.csv', newline='') as f:
+        with open(f'{r["filename"]}', newline='') as f:
             reader = csv.reader(f)
             row1 = next(reader)
             string_from_csv = ''.join(map(str, row1))
-        os.remove("result.csv")
+        os.remove(f"{r['filename']}")
         self.assertTrue(string_from_csv == s)
 
     def test_random_characters1(self):
@@ -65,10 +65,10 @@ class AssessmentTestCases(TestCase):
         obj = assessmentIPrice(s)
         r = obj.create_csv()
         # CSV created after this step
-        if r == 'CSV created!':
-            with open('result.csv', newline='') as f:
+        if r['text'] == 'CSV created!':
+            with open(f'{r["filename"]}', newline='') as f:
                 reader = csv.reader(f)
                 row1 = next(reader)
                 string_from_csv = ''.join(map(str, row1))
-            os.remove("result.csv")
+            os.remove(f'{r["filename"]}')
             self.assertTrue(string_from_csv == s)
