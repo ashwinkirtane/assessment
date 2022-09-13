@@ -1,5 +1,6 @@
 import sys
 import csv
+from datetime import datetime
 
 
 class assessmentIPrice:
@@ -25,8 +26,11 @@ class assessmentIPrice:
     def create_csv(self):
         # This method takes an input string and writes each character in different column of first row of a
         # CSV file result.csv in the root path (same as this file).
+        ts_format = '%Y%m%d%H%M%S'
+        ts = datetime.now().strftime(ts_format)
+        filename = f'result-{str(ts)}.csv'
         try:
-            csv_file = open(file='result.csv', mode='w')
+            csv_file = open(file=f'{filename}', mode='w')
             wr = csv.writer(csv_file)
             wr.writerow(self.input_string)
             csv_file.close()
